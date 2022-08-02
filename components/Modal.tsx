@@ -1,12 +1,11 @@
 import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from '@heroicons/react/solid'
 import MuiModal from '@mui/material/Modal'
-import { DocumentData } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import ReactPlayer from 'react-player'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atom/modalAtom'
-import { Genre, Movie } from '../TypeScript-types'
+import { Element, Genre } from '../TypeScript-types'
 
 const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState)
@@ -31,7 +30,7 @@ const Modal = () => {
         }&language=en-US&append_to_response=videos`
       ).then((response) => response.json())
 
-      if (data?.videos) {
+         if (data?.videos) {
         const index = data.videos.results.findIndex(
           (element: Element) => element.type === 'Trailer'
         )
