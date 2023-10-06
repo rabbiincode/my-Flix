@@ -1,16 +1,15 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { AuthProvider } from '../hooks/useAuth'
 import { RecoilRoot } from 'recoil'
+import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps } : AppProps) {
   return (
-  //Higher order component
+    //Higher order component
     <AuthProvider>
       <RecoilRoot>
-        <Component {...pageProps} />
+        <Component {...pageProps}/>
       </RecoilRoot>
-      
     </AuthProvider>
   )
 }

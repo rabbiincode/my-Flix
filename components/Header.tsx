@@ -1,22 +1,19 @@
 import {BellIcon, SearchIcon} from '@heroicons/react/solid'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import useAuth from '../hooks/useAuth'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-
   const {logout} = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 0){
         setIsScrolled(true)
-      } else {
+      } else{
         setIsScrolled(false)
       }
     }
-
     window.addEventListener('scroll', handleScroll)
 
     return () => {
@@ -26,14 +23,8 @@ const Header = () => {
 
   return (
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
-
       <div className="flex items-center space-x-2 md:space-x-10">
-        <img src="https://rb.gy/ulxxee"
-             alt="img"
-             width={100}
-             height={100}
-             className="cursor-pointer object-contain"
-        />
+        <img src="https://rb.gy/ulxxee" alt="img" width={100} height={100} className="cursor-pointer object-contain"/>
 
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
@@ -49,14 +40,8 @@ const Header = () => {
         <p className='hidden font-bold lg:inline'>Kids</p>
         <BellIcon className='h-6 w-6'/>
         
-        <img src="https://rb.gy/g1pwyx" 
-          alt="img" 
-          className='rounded'
-          onClick={logout}
-          />
-        
+        <img src="https://rb.gy/g1pwyx" alt="img" className='rounded' onClick={logout}/>
       </div>
-
     </header>
   )
 }

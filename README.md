@@ -1,23 +1,58 @@
-# Next.js + Tailwind CSS Example
+# Next.js - TypeScript - Tailwind CSS - FireBase - OMDb API
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-## Deploy your own
+# myFlix
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+This is a functional netFlix Clone
+## Tech Stack
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+**Client:** Next.JS, TypeScript, CSS, TailWind CSS
 
-## How to use
+**Database:** Firebase
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+**Server/ API:** OMDb API
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Project Description
+
+This is a functional clone of NetFlix built using:
+
+- Next.JS and TypeScript for the Frontend,
+- CSS and TailWind CSS for Styling,
+- Firebase for User Management,
+- OMDb API to connect to movies's API EndPoints.
+
+
+## Screenshots
+
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/image-store-3e6e0.appspot.com/o/myFlix1.png?alt=media&token=22b2d7cb-45cb-49f7-affc-1a5f019f3ff3)
+
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/image-store-3e6e0.appspot.com/o/myFlix2.png?alt=media&token=3e08e0d6-53d1-4fa1-8d13-8d6e51e62531)
+
+
+## Live Project Link
+
+Click here -
+[https://my-flix1.vercel.app](https://my-flix1.vercel.app)
+## Authors
+
+- [@rabbiincode](https://github.com/rabbiincode)
+
+
+## Contributing
+
+Contributions are always welcomed!
+
+## Related
+
+Here are some related projects
+
+YouTube Clone - [myTube]
+
+- [github link](https://github.com/rabbiincode/myTube)
+
+- [live demo link](https://awesomeclone.netlify.app)
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/successisaiah)

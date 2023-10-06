@@ -6,7 +6,8 @@ import { Movie } from "../TypeScript-types"
 interface Props {
   movie: Movie
 }
-const Thumbnail = ({ movie }: Props) => {
+
+const Thumbnail = ({ movie } : Props) => {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   const [showModal, setShowModal] = useRecoilState(modalState)
 
@@ -20,7 +21,7 @@ const Thumbnail = ({ movie }: Props) => {
           setCurrentMovie(movie)
           setShowModal(true)
         }}
-        />      
+      />      
     </div>
   )
 }

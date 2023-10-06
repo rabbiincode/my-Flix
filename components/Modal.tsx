@@ -1,8 +1,8 @@
-import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from '@heroicons/react/solid'
 import MuiModal from '@mui/material/Modal'
+import ReactPlayer from 'react-player'
+import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
-import ReactPlayer from 'react-player'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atom/modalAtom'
 import { Element, Genre } from '../TypeScript-types'
@@ -13,15 +13,11 @@ const Modal = () => {
   const [trailer, setTrailer] = useState('')
   const [muted, setMuted] = useState(false)
   const [genres, setGenres] = useState<Genre[]>([])
-  
-  const handleClose = () => {
-    setShowModal(false)
-  }
+  const handleClose = () => setShowModal(false)
 
   useEffect(() => {
     if (!movie) return
-
-    async function fetchMovie() {
+    async function fetchMovie(){
       const data = await fetch(
         `https://api.themoviedb.org/3/${
           movie?.media_type === 'tv' ? 'tv' : 'movie'
@@ -30,32 +26,26 @@ const Modal = () => {
         }&language=en-US&append_to_response=videos`
       ).then((response) => response.json())
 
-         if (data?.videos) {
+        if (data?.videos){
         const index = data.videos.results.findIndex(
           (element: Element) => element.type === 'Trailer'
         )
         setTrailer(data.videos?.results[index]?.key)
       }
 
-      if (data?.genres) {
+      if (data?.genres){
         setGenres(data.genres)
       }
     }
-
     fetchMovie()
   }, [movie])
 
   return (
-    <MuiModal
-      open={showModal}
-      onClose={handleClose}
+    <MuiModal open={showModal} onClose={handleClose}
       className="fixed !top-10 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <>
-        <button 
-          onClick={handleClose}
-          className='modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none bg-[#181818] hover:bg-[#181818]'
-        >
+        <button onClick={handleClose} className='modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none bg-[#181818] hover:bg-[#181818]'>
           <XIcon className='h-6 w-6'/>
         </button>
 
@@ -69,34 +59,26 @@ const Modal = () => {
             muted={muted}
           />
 
-         <div className="absolute bottom-8 flex w-full items-center justify-between px-10">
-          <div className="flex space-x-2">
-            <button
-              className="flex items-center gap-x-2 rounded bg-white px-6 py-2 text-xl font-bold text-black transition hover:bg-[#e6e6e6]"
-            >
-              <FaPlay className="h-7 w-7 text-black"/>Play
-            </button>
+          <div className="absolute bottom-8 flex w-full items-center justify-between px-10">
+            <div className="flex space-x-2">
+              <button className="flex items-center gap-x-2 rounded bg-white px-6 py-2 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+                <FaPlay className="h-7 w-7 text-black"/>Play
+              </button>
 
-            <button className="modalButton">
-              <PlusIcon className="h-7 w-7"/>
-            </button>
+              <button className="modalButton">
+                <PlusIcon className="h-7 w-7"/>
+              </button>
 
-            <button className="modalButton">
-              <ThumbUpIcon className="h-6 w-6" />
+              <button className="modalButton">
+                <ThumbUpIcon className="h-6 w-6" />
+              </button>
+            </div>
+
+            <button className="modalButton" onClick={() => setMuted(!muted)}>
+              {!muted ? (<VolumeOffIcon className='w-6 h-6' />) : (<VolumeUpIcon className='w-6 h-6' />)}
             </button>
           </div>
-
-          <button className="modalButton" onClick={() => setMuted(!muted)}>
-            {!muted ? (
-              <VolumeOffIcon className='w-6 h-6' />
-            ) : (
-              <VolumeUpIcon className='w-6 h-6' />
-            )}
-          </button>
-         </div>
-
         </div>
-
 
         <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
           <div className="space-y-6 text-lg">
@@ -118,12 +100,10 @@ const Modal = () => {
                   <span className="text-[gray]">Genres:</span>{' '}
                   {genres.map((genre) => genre.name).join(', ')}
                 </div>
-
                 <div>
                   <span className="text-[gray]">Original language:</span>{' '}
                   {movie?.original_language}
                 </div>
-
                 <div>
                   <span className="text-[gray]">Total votes:</span>{' '}
                   {movie?.vote_count}
@@ -132,7 +112,6 @@ const Modal = () => {
             </div>
           </div>
         </div>
-
       </>
     </MuiModal>
   )
